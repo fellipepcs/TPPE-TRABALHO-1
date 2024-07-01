@@ -6,7 +6,7 @@ import static org.junit.Assert.assertEquals;
 public class ClienteEspecialTest {
     @Test
     public void testCalcularDescontoSemCartaoEmpresa() {
-        ClienteEspecial cliente = new ClienteEspecial(100.00, "SP", true);
+        ClienteEspecial cliente = new ClienteEspecial("SP", true);
         double valorTotal = 1000.00;
         String metodoPagamento = "1234 5678 9123 4567";
 
@@ -17,7 +17,7 @@ public class ClienteEspecialTest {
 
     @Test
     public void testCalcularDescontoComCartaoEmpresa() {
-        ClienteEspecial cliente = new ClienteEspecial(100.00, "SP", true);
+        ClienteEspecial cliente = new ClienteEspecial( "SP", true);
         double valorTotal = 1000.00;
         String metodoPagamento = "4296 1300 0000 0000";
 
@@ -28,7 +28,7 @@ public class ClienteEspecialTest {
 
     @Test
     public void testCalcularFrete() {
-        ClienteEspecial cliente = new ClienteEspecial(100.00, "SP", true);
+        ClienteEspecial cliente = new ClienteEspecial("SP", true);
         double valorFrete = 50.00;
 
         double freteComDesconto = cliente.calcularFrete(valorFrete);
