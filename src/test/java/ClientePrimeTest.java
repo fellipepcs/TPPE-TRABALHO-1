@@ -14,6 +14,7 @@ public class ClientePrimeTest {
         assertEquals(0.00, freteComDesconto, 0.001);
     }
 
+
     @Test
     public void testCalcularCashbackSemCartaoEmpresa() {
         ClientePrime cliente = new ClientePrime(200.00, "DF", true);
