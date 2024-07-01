@@ -32,4 +32,81 @@ public class Venda {
     public String getMetodoPagamento() {
         return metodoPagamento;
     }
+
+    public double calcularValorTotal() {
+        return produtos.stream().mapToDouble(Produto::getValor).sum();
+    }
+    public double calcularTotalProdutos() {
+        return produtos.stream().mapToDouble(Produto::getValor).sum();
+    }
+
+    public double calcularDesconto() {
+        return cliente.calcularDesconto(calcularTotalProdutos(), metodoPagamento);
+    }
+
+    public double calcularValorFreteBase() {
+        double valorFrete = 0;
+        return valorFrete;
+    }
+    public double calcularICMS() {
+        double total = calcularValorTotal();
+        if (cliente.getEstado().equals("DF")) {
+            return total * 0.18;
+        } else {
+            return total * 0.12;
+        }
+    }
+
+    public double calcularImpostoMunicipal() {
+        if (cliente.getEstado().equals("DF")) {
+            return 0;
+        } else {
+            return calcularValorTotal() * 0.04;
+        }
+    }
+
+    public double calcularFrete() {
+        double freteBase = obterFreteBase(cliente.getEstado(), cliente.isCapital());
+        return cliente.calcularFrete(freteBase);
+    }
+
+    private double obterFreteBase(String estado, boolean capital) {
+        switch (estado) {
+            case "DF":
+                return capital ? 5.00 : 0;
+            case "GO":
+            case "MT":
+            case "MS":
+                return capital ? 10.00 : 13.00;
+            case "BA":
+            case "AL":
+            case "SE":
+            case "PE":
+            case "PB":
+            case "RN":
+            case "CE":
+            case "PI":
+            case "MA":
+                return capital ? 15.00 : 18.00;
+            case "AM":
+            case "RR":
+            case "AP":
+            case "PA":
+            case "TO":
+            case "RO":
+            case "AC":
+                return capital ? 20.00 : 25.00;
+            case "SP":
+            case "RJ":
+            case "MG":
+            case "ES":
+                return capital ? 7.00 : 10.00;
+            case "PR":
+            case "SC":
+            case "RS":
+                return capital ? 10.00 : 13.00;
+            default:
+                return 0;
+        }
+    }
 }
