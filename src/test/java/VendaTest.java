@@ -1,12 +1,15 @@
+import org.example.entities.Cliente;
+import org.example.entities.Produto;
+import org.example.entities.Venda;
 import org.junit.Test;
 
+import java.util.Arrays;
+import java.util.Date;
+import java.util.List;
+
+import static org.junit.Assert.assertEquals;
+
 public class VendaTest {
-
-    @Test
-    public void testVenda() {
-        System.out.println("Teste de venda");
-    }
-
     @Test
     public void testVenda() {
         Cliente cliente = new Cliente("Prime", 200.00, "DF", true);
