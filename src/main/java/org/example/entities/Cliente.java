@@ -1,6 +1,6 @@
 package org.example.entities;
 
-public class Cliente {
+public abstract class Cliente {
     private String tipo;
     private double mensalidade;
     private String estado;
@@ -28,4 +28,10 @@ public class Cliente {
     public boolean isCapital() {
         return capital;
     }
+
+    public abstract double calcularDesconto(double valorTotal, String metodoPagamento);
+
+    public abstract double calcularFrete(double valorFrete);
+
+    public abstract double calcularCashback(double valorTotal, String metodoPagamento);
 }
