@@ -33,8 +33,8 @@ public class Venda {
         return metodoPagamento;
     }
 
-    public double calcularValorTotal() {
-        return produtos.stream().mapToDouble(Produto::getValor).sum();
+    public double calcularValorTotal(double desconto, double frete, double icms, double impostoMunicipal) {
+        return produtos.stream().mapToDouble(Produto::getValor).sum() - desconto + frete + icms + impostoMunicipal;
     }
     public double calcularTotalProdutos() {
         return produtos.stream().mapToDouble(Produto::getValor).sum();
@@ -44,12 +44,8 @@ public class Venda {
         return cliente.calcularDesconto(calcularTotalProdutos(), metodoPagamento);
     }
 
-    public double calcularValorFreteBase() {
-        double valorFrete = 0;
-        return valorFrete;
-    }
     public double calcularICMS() {
-        double total = calcularValorTotal();
+        double total = calcularTotalProdutos();
         if (cliente.getEstado().equals("DF")) {
             return total * 0.18;
         } else {
@@ -61,12 +57,15 @@ public class Venda {
         if (cliente.getEstado().equals("DF")) {
             return 0;
         } else {
-            return calcularValorTotal() * 0.04;
+            return calcularTotalProdutos() * 0.04;
         }
     }
 
     public double calcularFrete() {
         double freteBase = obterFreteBase(cliente.getEstado(), cliente.isCapital());
+        if(cliente.getTipo().equals("prime")){
+            return 0;
+        }
         return cliente.calcularFrete(freteBase);
     }
 

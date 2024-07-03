@@ -1,14 +1,14 @@
 package org.example.entities;
 
 public abstract class Cliente {
+    private String nome;
     private String tipo;
-    private double mensalidade;
     private String estado;
     private boolean capital;
 
-    public Cliente(String tipo, double mensalidade, String estado, boolean capital) {
+    public Cliente(String nome ,String tipo, String estado, boolean capital) {
+        this.nome = nome;
         this.tipo = tipo;
-        this.mensalidade = mensalidade;
         this.estado = estado;
         this.capital = capital;
     }
@@ -17,8 +17,12 @@ public abstract class Cliente {
         return tipo;
     }
 
-    public double getMensalidade() {
-        return mensalidade;
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public String getEstado() {
@@ -32,6 +36,4 @@ public abstract class Cliente {
     public abstract double calcularDesconto(double valorTotal, String metodoPagamento);
 
     public abstract double calcularFrete(double valorFrete);
-
-    public abstract double calcularCashback(double valorTotal, String metodoPagamento);
 }

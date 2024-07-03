@@ -1,8 +1,8 @@
 package org.example.entities;
 
 public class ClienteEspecial extends Cliente {
-    public ClienteEspecial(double mensalidade, String estado, boolean capital) {
-        super("Especial", mensalidade, estado, capital);
+    public ClienteEspecial(String nome, String estado, boolean capital) {
+        super( nome,"Especial", estado, capital);
     }
 
     @Override
@@ -13,14 +13,8 @@ public class ClienteEspecial extends Cliente {
         }
         return desconto;
     }
-
     @Override
     public double calcularFrete(double valorFrete) {
         return valorFrete * 0.70;
-    }
-
-    @Override
-    public double calcularCashback(double valorTotal, String metodoPagamento) {
-        return 0;
     }
 }
