@@ -1,8 +1,12 @@
 package org.example.entities;
 
+import java.util.Date;
+import java.util.List;
+
 public class ClienteEspecial extends Cliente {
+
     public ClienteEspecial(String nome, String estado, boolean capital) {
-        super( nome,"Especial", estado, capital);
+        super(nome, "Especial", estado, capital);
     }
 
     @Override
@@ -13,6 +17,7 @@ public class ClienteEspecial extends Cliente {
         }
         return desconto;
     }
+
     @Override
     public double calcularFrete(double valorFrete) {
         return valorFrete * 0.70;
