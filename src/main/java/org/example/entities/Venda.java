@@ -33,6 +33,41 @@ public class Venda {
         return metodoPagamento;
     }
 
+    public Venda cadastrarVenda(Cliente cliente, List<Produto> produtos, String metodoPagamento) {
+        Venda venda = new Venda(new Date(), cliente, produtos, metodoPagamento);
+
+        return venda;
+    }
+
+    public double realizarVenda() {
+        CadastroProduto cadastroProduto = new CadastroProduto();
+        cadastroProduto.cadastrar("2121", "Notebook", 100, "2");
+        cadastroProduto.cadastrar("2122", "Smartphone", 200, "2");
+        cadastroProduto.cadastrar("2123", "Tablet", 300, "2");
+        cadastroProduto.cadastrar("2124", "Headphones", 400, "2");
+        cadastroProduto.cadastrar("2125", "Mouse", 500, "2");
+
+        ClienteEspecial clienteEspecial = new ClienteEspecial("Cliente 1", "SP", true);
+        CadastroCliente cadastro = new CadastroCliente();
+        cadastro.cadastrar(clienteEspecial);
+
+        List<Produto> produtosCadastrados = cadastroProduto.getProdutos();
+        System.out.println("Produtos cadastrados: " + produtosCadastrados.size());
+
+        Venda venda = new Venda(new Date() ,clienteEspecial, cadastroProduto.getProdutos(), "1234 5678 9123 4567");
+
+        double desconto = venda.calcularDesconto();
+        System.out.println("Desconto: " + desconto);
+        double frete = clienteEspecial.calcularFrete(50.00);
+        System.out.println("Frete: " + frete);
+        double icms = venda.calcularICMS();
+        System.out.println("ICMS: " + icms);
+        double impostoMunicipal = 0.0;
+        double valorTotal = venda.calcularValorTotal(desconto, frete, icms, impostoMunicipal);
+
+        System.out.println("Valor total da venda: " + valorTotal);
+        return valorTotal;
+    }
     public double calcularValorTotal(double desconto, double frete, double icms, double impostoMunicipal) {
         return produtos.stream().mapToDouble(Produto::getValor).sum() - desconto + frete + icms + impostoMunicipal;
     }
