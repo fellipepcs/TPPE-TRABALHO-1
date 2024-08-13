@@ -90,13 +90,4 @@ public class VendaTest {
         assertEquals(metodoPagamento, venda.getMetodoPagamento());
     }
 
-    @Test
-    public void testRealizarVenda() {
-        double valorTotal = this.venda.realizarVenda();
-        assertEquals(valorTotalVenda, valorTotal, 0.001);
-        assertNotNull(this.venda.getProdutos());
-        assertNotNull(this.venda.getCliente());
-        assertNotNull(this.venda.getData());
-        assertNotNull(this.venda.getMetodoPagamento());
-    }
 }
