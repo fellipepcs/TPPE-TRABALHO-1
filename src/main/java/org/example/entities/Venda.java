@@ -3,6 +3,12 @@ package org.example.entities;
 import java.util.Date;
 import java.util.List;
 
+/*
+    Refatoração: Extrair Método
+    O método realizarVenda() foi extraído e sua lógica movida para a nova classe ProcessamentoVenda.
+    Isso foi feito para melhorar a modularidade e a clareza do código, permitindo uma melhor organização da lógica de processamento de vendas.
+*/
+
 public class Venda {
     private Date data;
     private Cliente cliente;

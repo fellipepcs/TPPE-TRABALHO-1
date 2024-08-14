@@ -3,6 +3,25 @@ package org.example.entities;
 import java.util.Date;
 import java.util.List;
 
+/*
+    Refatoração: Substituir Método por Objeto-Método
+    O método realizarVenda() originalmente presente na classe Venda foi refatorado e movido para esta classe, ProcessamentoVenda.
+    A lógica do método foi encapsulada aqui, proporcionando uma maior modularidade e clareza na operação de venda.
+    O método realizarVenda foi dividido em métodos auxiliares, como calcularDesconto, calcularFrete, calcularICMS,
+    calcularImpostoMunicipal e calcularValorTotal, para facilitar o entendimento e a manutenção do código.
+*/
+
+/*
+   Classe resultante da refatoração "Substituir método por objeto-método" aplicada ao método realizarVenda() na classe VENDA.
+
+   Durante essa refatoração, o método realizarVenda() foi movido para a nova classe ProcessamentoVenda, que centraliza a lógica
+   de processamento da venda, incluindo o cadastro de produtos, cadastro de clientes, criação da venda, e o cálculo de valores
+   como desconto, frete, ICMS e imposto municipal.
+
+   Além disso, aplicamos a refatoração "Extrair Método", o que resultou na criação de métodos auxiliares como cadastrarProdutos(),
+   cadastrarClientes(), exibirQuantidadeProdutos(), criarVenda() e realizarVenda(), para melhorar a organização e a clareza do código.
+*/
+
 public class ProcessamentoVenda {
     private final CadastroProduto cadastroProduto;
     private final CadastroCliente cadastroCliente;
