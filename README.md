@@ -1,4 +1,4 @@
-# Trabalho TPPE
+# Trabalho TPPE - TDD e Refatoração
 
 
 <table align='center'>
@@ -34,3 +34,40 @@
 </p>
 
 <br></br>
+
+
+## Tecnologias Utilizadas
+
+- **Java**: Linguagem principal utilizada no desenvolvimento do projeto.
+- **JUnit 4**: Framework de testes para implementar o TDD.
+- **Git**: Sistema de controle de versão para gerenciar e rastrear alterações no código.
+- **IntelliJ**: IDE escolhido para codificação e execução dos testes.
+
+## Objetivos
+
+O principal objetivo deste trabalho é implementar um sistema de cadastro e gerenciamento de clientes e produtos utilizando técnicas de Desenvolvimento Orientado a Testes (TDD) com Java e JUnit 4.O sistema possibilitara:
+
+- **Cadastro de Clientes**: Clientes podem ser categorizados como padrão, especial ou prime, com endereços diferenciados por estado e localidade (capital ou interior).
+- **Cadastro de Produtos**: Produtos com código, descrição, valor de venda e unidade de medida.
+- **Realização de Vendas**: Registra vendas, calcula frete, descontos, impostos e permite o uso de cashback para clientes prime.
+- **Cálculo de Vendas do Último Mês**: Determina o volume de vendas mensais para upgrades de categoria.
+- **Cálculo de Cashback**: Acumula saldo de cashback para clientes prime, baseado nas compras realizadas.
+
+
+## TP1 - Implementação
+
+O desenvolvimento seguiu a abordagem TDD, garantindo que cada funcionalidade do sistema fosse implementada após a criação dos testes correspondentes. Isso assegurou que o código estivesse alinhado com os requisitos especificados e livre de defeitos.
+
+**Ciclo TDD**:
+- **Red**: Escrever um teste que inicialmente falha.
+- **Green**: Implementar o código necessário para passar no teste.
+- **Refactor**: Melhorar o código mantendo os testes bem-sucedidos.
+
+## TP2 - Refatoração
+
+A segunda parte do trabalho consiste na aplicação de operações de Refatoração no código entregue pelos grupo no TP1. As operações serão aplicadas nas classes / métodos indicados pelo professor e devem ser apresentadas com comentários detalhando os efeitos da operação de refatoração no código. 
+
+## Considerações Finais
+
+Este trabalho prático demonstrou a eficácia do TDD na construção de software de qualidade, garantindo que o código esteja sempre validado pelos testes. A abordagem TDD não só promoveu um design de código mais limpo, mas também reduziu a ocorrência de bugs, tornando o sistema mais confiável.
+
